@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 🎂</title>
+
+    <style>
+
+        body{
+            margin:0;
+            height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            overflow:hidden;
+
+            font-family:Arial, sans-serif;
+
+            background:linear-gradient(-45deg,
+            #ff9a9e,
+            #fad0c4,
+            #fbc2eb,
+            #a18cd1);
+
+            background-size:400% 400%;
+
+            animation:bgMove 10s ease infinite;
+        }
+
+        .container{
+
+            position:relative;
+            z-index:2;
+
+            background:rgba(255,255,255,0.15);
+
+            backdrop-filter:blur(12px);
+
+            padding:45px;
+
+            border-radius:30px;
+
+            text-align:center;
+
+            color:white;
+
+            box-shadow:0 8px 32px rgba(0,0,0,0.2);
+
+            animation:fadeUp 1.5s ease;
+        }
+
+        h1{
+            font-size:52px;
+
+            margin-bottom:10px;
+
+            animation:glow 2s infinite alternate;
+        }
+
+        p{
+            font-size:20px;
+
+            opacity:0.95;
+        }
+
+        button{
+
+            margin-top:25px;
+
+            padding:14px 28px;
+
+            border:none;
+
+            border-radius:999px;
+
+            background:white;
+
+            color:#ff4f81;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        button:hover{
+
+            transform:scale(1.1);
+
+            box-shadow:0 0 20px rgba(255,255,255,0.7);
+        }
+
+        .heart{
+
+            position:fixed;
+
+            top:-10px;
+
+            animation:fall linear forwards;
+        }
+
+        @keyframes fall{
+
+            to{
+                transform:
+                translateY(110vh)
+                rotate(360deg);
+            }
+        }
+
+        @keyframes fadeUp{
+
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @keyframes glow{
+
+            from{
+                text-shadow:0 0 10px white;
+            }
+
+            to{
+                text-shadow:0 0 25px pink;
+            }
+        }
+
+        @keyframes bgMove{
+
+            0%{
+                background-position:0% 50%;
+            }
+
+            50%{
+                background-position:100% 50%;
+            }
+
+            100%{
+                background-position:0% 50%;
+            }
+        }
+
+        .popup{
+
+            position:fixed;
+
+            top:50%;
+            left:50%;
+
+            transform:translate(-50%,-50%);
+
+            background:white;
+
+            color:#ff4f81;
+
+            padding:20px 40px;
+
+            border-radius:20px;
+
+            font-size:22px;
+
+            box-shadow:0 0 30px rgba(255,255,255,0.8);
+
+            animation:fadeUp 0.5s ease;
+
+            z-index:10;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Happy Birthday 🎂</h1>
+
+        <p>
+            chúc em bé luôn vui vẻ và hạnh phúc 💗
+        </p>
+
+        <button onclick="showMessage()">
+            bấm vào đây nè
+        </button>
+
+    </div>
+
+    <script>
+
+        for(let i=0;i<40;i++){
+
+            let heart=document.createElement("div");
+
+            heart.innerHTML="💗";
+
+            heart.className="heart";
+
+            heart.style.left=Math.random()*100+"vw";
+
+            heart.style.fontSize=
+            (20+Math.random()*30)+"px";
+
+            heart.style.animationDuration=
+            (3+Math.random()*5)+"s";
+
+            document.body.appendChild(heart);
+        }
+
+        function showMessage(){
+
+            const msg=document.createElement("div");
+
+            msg.className="popup";
+
+            msg.innerHTML=
+            "iu nong nhìu lắm đó 😭💞";
+
+            document.body.appendChild(msg);
+
+            setTimeout(()=>{
+                msg.remove();
+            },2500);
+        }
+
+    </script>
+
+</body>
+
+</html>
